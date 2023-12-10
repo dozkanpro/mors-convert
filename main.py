@@ -9,7 +9,7 @@ def get_morse_code_dict():
 
     morse_code_dict = {}
     table_cells = soup.findAll(name='td')
-    for i in range(0, len(table_cells)-1, 2):
+    for i in range(0, len(table_cells) - 1, 2):
         character = table_cells[i].text.strip().upper()
         morse_code = table_cells[i + 1].text.strip()
         morse_code_dict[character] = morse_code
@@ -26,8 +26,9 @@ def text_to_morse(text, morse_code_dict):
 
     return morse_text.strip()
 
+
 def main():
-    print("Morse Code Converter")
+    print("Welcome to Morse Code Converter")
     morse_code_dict = get_morse_code_dict()
 
     while True:
@@ -37,6 +38,7 @@ def main():
 
         morse_code = text_to_morse(input_text, morse_code_dict)
         print(f"Morse Code: {morse_code}\n")
+
 
 if __name__ == "__main__":
     main()
